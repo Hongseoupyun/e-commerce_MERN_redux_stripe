@@ -2,7 +2,7 @@ export const sliderItems = [
   {
     id: 1,
     img: "https://www.nicepng.com/png/detail/249-2499188_female-fashion-model-png-picture-black-and-white.png",
-    title: "SUMMER SALE",
+    title: "SEASON OFF SALE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "f5fafd",
   },
