@@ -22,7 +22,7 @@ function Navbar() {
           <MenuItem>Register</MenuItem>
           <MenuItem>Sign In</MenuItem>
           <MenuItem>
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={4} color="primary">
               <ShoppingCartOutlinedIcon />
             </Badge>
           </MenuItem>
