@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function Signup() {
+function SignUp() {
   return (
     <Container>
       <Wrapper>
@@ -81,4 +81,4 @@ const Button = styled.button`
   }
 `;
 
-export default Signup;
+export default SignUp;
