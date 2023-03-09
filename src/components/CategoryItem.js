@@ -23,11 +23,13 @@ const Container = styled.div`
   height: 70vh;
   position: relative;
 `;
+
 const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
+
 const Info = styled.div`
   position: absolute;
   width: 100%;
@@ -38,9 +40,11 @@ const Info = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 const Title = styled.h1`
   margin-bottom: 25px;
 `;
+
 const Button = styled.button`
   border: none;
   padding: 13px;

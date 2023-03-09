@@ -25,15 +25,18 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 const Title = styled.h1`
   font-size: 70px;
   margin-bottom: 20px;
 `;
+
 const Description = styled.p`
   font-size: 24px;
   margin-bottom: 20px;
   font-weight: 300;
 `;
+
 const InputContainer = styled.div`
   display: flex;
   width: 50%;
@@ -42,6 +45,7 @@ const InputContainer = styled.div`
   justify-content: space-between;
   border: 1px solid lightgray;
 `;
+
 const Input = styled.input`
   border: none;
   flex: 8;

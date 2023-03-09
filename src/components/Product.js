@@ -37,6 +37,7 @@ const Container = styled.div`
   background-color: #f5fbfd;
   position: relative;
 `;
+
 const Circle = styled.div`
   width: 200px;
   height: 200px;
@@ -44,10 +45,12 @@ const Circle = styled.div`
   background-color: white;
   position: absolute;
 `;
+
 const Image = styled.img`
   height: 75%;
   z-index: 2;
 `;
+
 const Info = styled.div`
   width: 100%;
   height: 100%;
@@ -66,6 +69,7 @@ const Info = styled.div`
     transition: all 0.5s ease;
   }
 `;
+
 const Icon = styled.div`
   width: 40px;
   height: 40px;

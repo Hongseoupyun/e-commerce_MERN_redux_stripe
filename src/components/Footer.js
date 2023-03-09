@@ -84,13 +84,18 @@ const Center = styled.div`
   flex: 1;
   padding: 20px;
 `;
-const Logo = styled.h1``;
+const Logo = styled.h1`
+  text-decoration: underline crimson;
+`;
+
 const Desc = styled.p`
   margin: 20px 0px;
 `;
+
 const SocialContainer = styled.div`
   display: flex;
 `;
+
 const SocialIcon = styled.div`
   width: 40px;
   height: 40px;
@@ -106,6 +111,7 @@ const SocialIcon = styled.div`
 const Title = styled.h3`
   margin-bottom: 30px;
 `;
+
 const List = styled.ul`
   padding: 0;
   margin: 0;
@@ -113,6 +119,7 @@ const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `;
+
 const ListItem = styled.li`
   width: 50%;
   margin-bottom: 10px;
@@ -124,6 +131,7 @@ const ContactItem = styled.li`
   display: flex;
   align-items: center;
 `;
+
 const Payment = styled.img`
   width: 50%;
 `;
