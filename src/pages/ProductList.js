@@ -5,6 +5,7 @@ import Announcement from "components/Announcement";
 import Products from "components/Products";
 import Footer from "components/Footer";
 import Newsletter from "components/Newsletter";
+import { mobile } from "responsive";
 
 function Productlist() {
   return (
@@ -15,7 +16,7 @@ function Productlist() {
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
-          <Select>
+          <Select responsiveWidth={"25%"}>
             <Option disabled selected>
               Color
             </Option>
@@ -26,7 +27,7 @@ function Productlist() {
             <Option>Yellow</Option>
             <Option>Green</Option>
           </Select>
-          <Select>
+          <Select responsiveWidth={"25%"}>
             <Option disabled selected>
               Size
             </Option>
@@ -40,7 +41,7 @@ function Productlist() {
         </Filter>
         <Filter>
           <FilterText>Sort Products:</FilterText>
-          <Select>
+          <Select responsiveWidth={"55%"}>
             <Option>Sort by: Low Price</Option>
             <Option>Sort by: High Price</Option>
           </Select>
@@ -62,14 +63,29 @@ const FilterContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0px 20px;
+  ${mobile({
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "baseline",
+    padding: "0px",
+  })}
 `;
 const Filter = styled.div`
   margin: 20px;
+  ${mobile({
+    margin: "0px 20px",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: "20px",
+    width: "100%",
+  })}
 `;
 
 const FilterText = styled.span`
   font-size: 20px;
   font-weight: 600;
+  ${mobile({ fontSize: "16px" })}
 `;
 
 const Select = styled.select`
@@ -77,6 +93,7 @@ const Select = styled.select`
   margin-left: 10px;
   border: 1px solid lightgray;
 
+  ${mobile({ width: (props) => props.responsiveWidth })}
 `;
 const Option = styled.option``;
 

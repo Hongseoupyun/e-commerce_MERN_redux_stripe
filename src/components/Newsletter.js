@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ForwardToInboxOutlinedIcon from "@mui/icons-material/ForwardToInboxOutlined";
+import { mobile } from "responsive";
 
 function Newsletter() {
   return (
@@ -29,12 +30,14 @@ const Container = styled.div`
 const Title = styled.h1`
   font-size: 70px;
   margin-bottom: 20px;
+  ${mobile({ fontSize: "60px" })}
 `;
 
 const Description = styled.p`
   font-size: 24px;
   margin-bottom: 20px;
   font-weight: 300;
+  ${mobile({ textAlign: "center" , fontSize: "20px"})}
 `;
 
 const InputContainer = styled.div`
@@ -44,6 +47,7 @@ const InputContainer = styled.div`
   background-color: white;
   justify-content: space-between;
   border: 1px solid lightgray;
+  ${mobile({ width: "80%" })}
 `;
 
 const Input = styled.input`

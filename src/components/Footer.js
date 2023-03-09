@@ -7,6 +7,7 @@ import PinterestIcon from "@mui/icons-material/Pinterest";
 import RoomIcon from "@mui/icons-material/Room";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import EmailIcon from "@mui/icons-material/Email";
+import { mobile } from "responsive";
 
 function Footer() {
   return (
@@ -69,6 +70,7 @@ function Footer() {
 
 const Contariner = styled.div`
   display: flex;
+  ${mobile({ flexDirection: "column" })}
 `;
 const Left = styled.div`
   flex: 1;

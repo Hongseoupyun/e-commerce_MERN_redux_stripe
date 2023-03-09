@@ -3,8 +3,9 @@ import styled from "styled-components";
 import Navbar from "components/Navbar";
 import Announcement from "components/Announcement";
 import Footer from "components/Footer";
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import { mobile } from "responsive";
 
 function Cart() {
   return (
@@ -33,7 +34,7 @@ function Cart() {
                   <ProductId>
                     <b>ID:</b> 93813718293
                   </ProductId>
-                  <ProductColor color="black" />
+                  Color: <ProductColor color="black" />
                   <ProductSize>
                     <b>Size:</b> 37.5
                   </ProductSize>
@@ -59,7 +60,7 @@ function Cart() {
                   <ProductId>
                     <b>ID:</b> 93813718293
                   </ProductId>
-                  <ProductColor color="black" />
+                  Color: <ProductColor color="black" />
                   <ProductSize>
                     <b>Size:</b> 37.5
                   </ProductSize>
@@ -102,6 +103,7 @@ const Container = styled.div``;
 
 const Wrapper = styled.div`
   padding: 20px;
+  ${mobile({ padding: "10px" })}
 `;
 
 const Title = styled.h1`
@@ -126,7 +128,9 @@ const TopButton = styled.button`
   color: ${(props) => props.type === "filled" && "white"};
 `;
 
-const TopTexts = styled.div``;
+const TopTexts = styled.div`
+  ${mobile({ display: "none" })}
+`;
 
 const TopText = styled.span`
   text-decoration: underline;
@@ -137,6 +141,7 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Info = styled.div`
@@ -146,6 +151,7 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const ProductDetail = styled.div`
@@ -183,6 +189,13 @@ const PriceDetail = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  ${mobile({
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "unset",
+    marginTop: "20px",
+    padding: "5px",
+  })}
 `;
 
 const ProductAmountContainer = styled.div`
@@ -194,6 +207,15 @@ const ProductAmountContainer = styled.div`
 const ProductAmount = styled.div`
   font-size: 24px;
   margin: 5px;
+  ${mobile({ margin: "5px 15px" })}
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px;
 `;
 
 const ProductPrice = styled.div`
