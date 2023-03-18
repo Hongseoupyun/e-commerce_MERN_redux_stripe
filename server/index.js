@@ -18,3 +18,9 @@ app.listen(process.env.PORT || 3001, () => {
 });
 
 app.use(express.json());
+
+// Import Routes
+const authRoute = require("./routes/auth");
+
+// Routes
+app.use("/api/auth", authRoute);
