@@ -8,12 +8,49 @@ router.post("/signup", async (req, res) => {
   const newUser = new User({
     username,
     email,
-    password: CryptoJS.AES.encrypt(password, process.env.SECRET_PHARASE).toString(),
+    password: CryptoJS.AES.encrypt(
+      password,
+      process.env.SECRET_PHARASE
+    ).toString(),
   });
   try {
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
   } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Sign in route
+router.post("/signin", async (req, res) => {
+  // Extract username and password from request body
+  const { username, password } = req.body;
+
+  try {
+    // Find user in the database using the provided username
+    const user = await User.findOne({ username: username });
+
+    // If the user is not found, return an error message
+    if (!user) {
+      return res.status(401).json("Wrong username");
+    }
+
+    // Decrypt the stored password using the secret phrase
+    const hashedPassword = CryptoJS.AES.decrypt(
+      user.password,
+      process.env.SECRET_PHARASE
+    );
+    const passwordFromDB = hashedPassword.toString(CryptoJS.enc.Utf8);
+
+    // If the input password does not match the decrypted password, return an error message
+    if (password !== passwordFromDB) {
+      return res.status(401).json("Wrong password");
+    }
+
+    // If the password matches, return the user information
+    res.status(200).json(user);
+  } catch (err) {
+    // If there is an error during the process, return a server error message
     res.status(500).json(err);
   }
 });
