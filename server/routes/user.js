@@ -71,11 +71,47 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+// Get user stats handler (admin access only); How many users were created in each month of the last year
+const getUserStats = async (req, res) => {
+  // Get the current date
+  const date = new Date();
+  // Calculate the date one year ago from the current date
+  const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
+
+  try {
+    // Use MongoDB aggregation to perform a series of operations on the User documents
+    const data = await User.aggregate([
+      // Filter documents to only include those created within the last year
+      { $match: { createdAt: { $gte: lastYear } } },
+      // Create a new field 'month' containing the month number of the 'createdAt' field
+      {
+        $project: {
+          month: { $month: "$createdAt" },
+        },
+      },
+      // Group documents by the 'month' field and count the number of documents per group
+      {
+        $group: {
+          _id: "$month",
+          total: { $sum: 1 },
+        },
+      },
+    ]);
+
+    // Send the aggregated data as the response
+    res.status(200).json(data);
+  } catch (err) {
+    // If there is an error, send an error response
+    res.status(500).json(err);
+  }
+};
+
 // Define the routes and their corresponding handlers
 router.put("/:id", verifyTokenAndAuthorization, updateUser);
 router.delete("/:id", verifyTokenAndAuthorization, deleteUser);
 router.get("/find/:id", verifyTokenAndIsAdmin, findUser);
 router.get("/", verifyTokenAndIsAdmin, getAllUsers);
+router.get("/stats", verifyTokenAndIsAdmin, getUserStats);
 
 // Export the router to be used in other modules
 module.exports = router;
