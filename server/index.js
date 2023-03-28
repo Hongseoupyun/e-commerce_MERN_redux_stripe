@@ -22,6 +22,7 @@ app.use(express.json());
 // Import Routes
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
+const productRoute = require("./routes/product");
 
 // Routes
 app.use("/api/auth", authRoute);
