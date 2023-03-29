@@ -1,10 +1,7 @@
 // Import the required modules
 const router = require("express").Router();
 const Product = require("../models/product");
-const {
-  verifyTokenAndAuthorization,
-  verifyTokenAndIsAdmin,
-} = require("./verifyToken");
+const { verifyTokenAndIsAdmin } = require("./verifyToken");
 
 // Create new product handler
 const createNewProduct = async (req, res) => {
