@@ -1,6 +1,6 @@
 // Import the required modules
 const router = require("express").Router();
-const Cart = require("../models/product");
+const Cart = require("../models/Cart");
 const {
   verifyTokenAndIsAdmin,
   verifyToken,
